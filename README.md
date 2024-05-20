@@ -1,7 +1,7 @@
 ### dart_node_example
 "how to" import a dart function in node.js
 
-### pure ts hello world
+### js/ts example
 
 - set up node dependencies
 ```sh
@@ -13,6 +13,7 @@ npm install --save-dev typescript @types/node @types/express ts-node-dev
 ```json
 {
     "compilerOptions": {
+      "allowJs": true,
       "target": "ES6",
       "module": "commonjs",
       "strict": true,
@@ -22,26 +23,28 @@ npm install --save-dev typescript @types/node @types/express ts-node-dev
       "rootDir": "./src"
     },
     "include": ["src"]
-  }
+  }  
+```
+
+- create the file `src/greeting.js with the following code
+```js
+export function greeting() {
+    return "Hello from JS"
+}
 ```
 - create the file `src/index.ts` with the code below
 ```ts
 import express, { Request, Response } from 'express';
+import { greeting } from './greeting.js';
 
 const app = express();
 const port = 3000;
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello TS!');
+  res.send(greeting());
 });
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
-```
-- update `scripts` in `package.json`
-```json
-"scripts": {
-  "start": "ts-node-dev src/index.ts"
-}
 ```
