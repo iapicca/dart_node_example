@@ -54,3 +54,7 @@ app.listen(port, () => {
 ### notes
 see issue
 - https://github.com/dart-lang/webdev/issues/2432
+
+### Example
+
+Simply run `npm start` and you can then access http://localhost:3000
