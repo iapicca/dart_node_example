@@ -29,3 +29,4 @@ doc/api/
 .env*
 *.dart.js
 *.info.json      # Produced by the --dump-info flag.
+src/greeting.js

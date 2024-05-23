@@ -4,6 +4,8 @@
   "description": "\"how to\" import a dart function in node.js",
   "main": "index.js",
   "scripts": {
+    "build:dart": "dartscript --func greeting --out src/greeting.js greeting.dart",
+    "prestart": "npm run build:dart",
     "start": "ts-node-dev src/index.ts"
   },
   "keywords": [],
@@ -15,6 +17,7 @@
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.12.12",
+    "dartscript": "^1.0.0-alpha.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.4.5"
   }
